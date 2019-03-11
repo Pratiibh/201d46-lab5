@@ -57,11 +57,19 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-    var sum_two = a + b + c;
-    var product_two = a * b * c;
-    var sum_string = a + ' and ' + b + ' and ' + c + ' sum to ' + sum_two + '.';
-    var product_string = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + product_two + '.';
-    return[sum_two, product_two, sum_string, product_string];
+    var sum_two = sum(a, b);
+    // console.log(sum_two);
+    var sum_three = sum(sum_two[0],c);
+    // console.log(sum_three);
+    var product_two = multiply(a, b);
+    // console.log(product_two);
+    var product_three = multiply(product_two[0], c);
+    // console.log(product_three);
+    var sum_string = a + ' and ' + b + ' and ' + c + ' sum to ' + sum_three[0] + '.';
+    // console.log(sum_string);
+    var product_string = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + product_three[0] + '.';
+    // console.log(product_string);
+    return[sum_three[0], product_three[0], sum_string, product_string];
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
@@ -83,12 +91,21 @@ Test this function by hand in the console to get it working, and when you think 
 var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
+var one = testArray[0]
+var two = testArray[1]
+var three = testArray[2]
 
+var one_sum = sum(one, two);
+var two_sum = sum(one_sum[0], three);
+console.log(two_sum[0]);
+var testArray_string = one + ',' + two + ',' + three + ' was passed in as an array of numbers, and ' + two_sum[0] + ' is their sum.'
+console.log(testArray_string);
+return[two_sum[0], testArray_string];
 }
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
